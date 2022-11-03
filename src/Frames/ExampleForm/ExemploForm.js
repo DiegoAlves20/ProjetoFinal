@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {View, StyleSheet, TouchableOpacity, Text, ScrollView, Image} from 'react-native';
 import {Formik} from 'formik';
 import TextInput from '../../Components/TextInput/TextInput';
@@ -8,18 +8,15 @@ import Forms from '../../../FormJson';
 
 
 function ExampleForm({onSubmit, initialValues, navigation}) {
-  const handleGoToLogin = () => {
+   const handleGoToLogin = () => {
     navigation.navigate("Login")
-  }
+  } 
   /* fetch('http://10.92.198.19:8080/usuario',{
     method:'POST',
     headers:{
       Accept: 'application/json', 'Content-Type' : 'application/json'
     },
-    body: JSON.stringify({
-      nome:'json.name',
-      email:'json.email'
-    })
+    body: JSON.stringify({})
 
     .then(resposta => resposta.json())
     .then( (json) => console.log(json))
@@ -41,7 +38,7 @@ function ExampleForm({onSubmit, initialValues, navigation}) {
       return (
         <View style={styles.container}> 
      
-        <ScrollView style={styles.scrollbar}>
+        <ScrollView style={styles.scrollbar} showsVerticalScrollIndicator={false}>
           <Image source={require('../../assets/logoPrincipalG.png')} style={styles.image}/>
                 
         
@@ -76,6 +73,7 @@ function ExampleForm({onSubmit, initialValues, navigation}) {
             name="email"
             value={values.email}
             error={touched.email && errors.email}
+            placeholderTextColor="red"
           />
           {/* CPF */}
           <Text style={styles.text}>CPF</Text>
@@ -163,7 +161,7 @@ function ExampleForm({onSubmit, initialValues, navigation}) {
       width:125,
       height: 53,
       flex:1,
-      backgroundColor:'#ed7a11',
+      backgroundColor:'black',
       justifyContent: 'center',
       alignItems: 'center',
       marginHorizontal:145,
@@ -180,7 +178,7 @@ function ExampleForm({onSubmit, initialValues, navigation}) {
     text:{
       fontSize:16,
       marginTop:20,
-      color:'#000',
+      color:'black',
       alignItems:'center',
       marginLeft:85,
     },

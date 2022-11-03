@@ -82,7 +82,9 @@ project.ext.react = [
     enableHermes: true,  // clean and rebuild if changing
 ]
 
-apply from: "../../node_modules/react-native/react.gradle"
+ apply from: "../../node_modules/react-native/react.gradle"
+
+
 
 /**
  * Set this to true to create two separate APKs instead of one:
@@ -311,3 +313,11 @@ def isNewArchitectureEnabled() {
     // - Set an environment variable `ORG_GRADLE_PROJECT_newArchEnabled=true`
     return project.hasProperty("newArchEnabled") && project.newArchEnabled == "true"
 }
+
+//Exucação do vector icons
+project.ext.vectoricons = [
+    iconFontNames: [ 'Feather.ttf' ] // nome da fonte que sera usada no progama !!!
+]
+
+//Aplicando as fonte no node_modules
+apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"

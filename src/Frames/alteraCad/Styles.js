@@ -1,11 +1,10 @@
 import { StyleSheet } from "react-native";
 
-const styleLogin = StyleSheet.create({
-    
+const styleAltCad = StyleSheet.create({
     
     /* fundo de tudo */
     background:{
-        alignItems: 'center',
+        alignItems: 'center'
     },
     /* editando logo */
     ContainerLogo:{
@@ -30,13 +29,14 @@ const styleLogin = StyleSheet.create({
         borderColor: "#427aaa",
         borderWidth: 2,
     },
-
+    
     /* textos dos campos */
     textInput: {
         paddingVertical: 5,
-        marginRight: '70%',
+        marginRight: '30%',
         fontSize: 18,
         color: 'black',
+        width: '50%'
     },
    /* botao de links */
     link:{
@@ -45,6 +45,9 @@ const styleLogin = StyleSheet.create({
         fontSize: 16,
     },
     /* botao de acessar */
+    btAcessar:{
+        margin: 30
+    },
     botao:{
         fontSize: 18,
         backgroundColor: '#ED7A11',
@@ -62,4 +65,4 @@ const styleLogin = StyleSheet.create({
         width: 100,
     }
 })
-export default styleLogin;
+export default styleAltCad;

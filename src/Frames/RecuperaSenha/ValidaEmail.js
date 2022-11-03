@@ -9,7 +9,7 @@ export default function RecuperaSenha({navigation}) {
     }
 
     return(
-        <ScrollView>
+        <ScrollView showsVerticalScrollIndicator={false}>
             <KeyboardAvoidingView style={styleEmail.background}>
                 <StatusBar style='auto'/>
                 <View style={styleEmail.ContainerLogo}>

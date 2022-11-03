@@ -1,6 +1,7 @@
 import { StyleSheet } from "react-native";
 
 export const styleInicial = StyleSheet.create({
+   
     container:{
         
     },
@@ -40,9 +41,7 @@ export const styleInicial = StyleSheet.create({
         marginLeft: 20,
         marginTop: 25 
     },
-    lista:{
-     
-    },
+    
     item:{
         marginTop:18,
         padding:10,
@@ -116,8 +115,49 @@ export const styleInicial = StyleSheet.create({
         fontWeight:'500',
         fontSize:18,
         color:'black',
-     
         borderBottomWidth:1,
         borderBottomColor:'#427AAA'
-    }
+    },
+    viewBlue:{
+        height:60,
+        backgroundColor:'#427AAA',
+        borderBottomLeftRadius:8,
+        borderBottomRightRadius:8,
+    },
+    ViewSearch:{
+        width:'100%',
+        padding:12,
+        flex:1,
+        alignItems:'center',
+        justifyContent:'space-between',
+        flexDirection:'row'
+    },
+    inputSearch:{
+        backgroundColor:'white',
+        width:'80%',
+        borderRadius:8,
+        padding:15
+    },
+    iconFilter:{
+        backgroundColor:'#ed7a11',
+        height:55,
+        width:55,
+        borderRadius:8
+    },
+    tituloFiltroVaga:{
+        fontSize:20,
+        color:'black',
+        marginVertical:25,
+        marginHorizontal:25
+    },
+    viewBlueFav:{
+        flex:1,
+        justifyContent:'center',
+        alignItems:'center',
+        paddingTop:10,
+        backgroundColor:'#427AAA',
+        borderBottomLeftRadius:8,
+        borderBottomRightRadius:8,
+    },
+    
 })

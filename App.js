@@ -1,17 +1,16 @@
-import { View } from "react-native"
-import Stacks from "./src/Frames/Login/Stacks"
-import Tabs from "./src/Frames/Login/Tabs"
-import { NavigationContainer } from "@react-navigation/native"
 
-
+import { View } from "react-native";
+import LoginUsuario from "./src/Frames/Login/LoginU";
+import { TabsStacks } from "./src/routes/Tbs";
+import { Logi } from "./src/routes/Stacks";
 
 export default function App(){
-        return (
-      <NavigationContainer>
-        <Tabs/>
-      </NavigationContainer>
-               
-                
-       
-        )
-}
+  return ( 
+      <>
+      
+      <TabsStacks />
+
+      </>
+        
+    
+)}

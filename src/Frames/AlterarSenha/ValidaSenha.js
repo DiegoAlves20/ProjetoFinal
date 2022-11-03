@@ -1,19 +1,26 @@
 import React from 'react';
-import { View, KeyboardAvoidingView, Image, Text, TextInput, TouchableOpacity, StatusBar, ScrollView  } from 'react-native';
+import { 
+    View,
+    KeyboardAvoidingView,
+    Image,
+    Text,
+    TextInput,
+    TouchableOpacity,
+    StatusBar,
+    ScrollView
+    } from 'react-native';
 
 import styleSenha from './Style';
 
-export default function AlteraSenha() {
+export default function AlteraSenha({navigation}) {
     
         return(
-            <ScrollView>
+            <ScrollView showsVerticalScrollIndicator={false}>
             <KeyboardAvoidingView style={styleSenha.background}>
                 <StatusBar style='auto'/>
                 <View style={styleSenha.ContainerLogo}>
-                    
                     <Image style={styleSenha.Logo}
                         source={require('../../assets/logoPrincipalG.png')}
-
                     />
                 </View>
 
@@ -43,7 +50,7 @@ export default function AlteraSenha() {
                         onChangeText={()=>{}}
                     > 
                     </TextInput>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() =>{navigation.navigate('Login')}}>
                     <Text style={styleSenha.botao}>Aletrar</Text>
                 </TouchableOpacity>
                 </View>

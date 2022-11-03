@@ -1,28 +1,29 @@
 import React from "react";
-import { View, Text, FlatList, TouchableOpacity } from "react-native";
+import { View, Text, FlatList, TouchableOpacity, KeyboardAvoidingView } from "react-native";
 import { styleInicial } from "../Frames/HomePage/StyleHome";
 
 
-const DATA = [
-    {
-        id:'',
-        nomeVaga:'Desenvolvedor Java Sênior',
-        nomeEmpresa:'Salesforce',
-        ramo:'Soluções de TI',
-        local:'Itapevi - SP',
-        data:'12/04'
-    },
-    {
-        id:'',
-        nomeVaga:'Desenvolvedor Java Sênior',
-        nomeEmpresa:'Salesforce',
-        ramo:'Soluções de TI',
-        local:'Itapevi - SP',
-        data:'12/04'
-    },
-];
-const ItemVP = ({nomeVaga, nomeEmpresa, ramo, local, data}) => (
-    <View style={styleInicial.item}>
+  const DATA = [
+      {
+          id:'',
+          nomeVaga:'Desenvolvedor Java Sênior',
+          nomeEmpresa:'Salesforce',
+          ramo:'Soluções de TI',
+          local:'Itapevi - SP',
+          data:'12/04'
+      },
+      {
+          id:'',
+          nomeVaga:'Desenvolvedor Java Sênior',
+          nomeEmpresa:'Salesforce',
+          ramo:'Soluções de TI',
+          local:'Itapevi - SP',
+          data:'12/04'
+      },
+  ];
+  const ItemVP = ({nomeVaga, nomeEmpresa, ramo, local, data}) => (
+   
+   <View style={styleInicial.item}>
       <Text style={styleInicial.nomeVaga}>{nomeVaga}</Text>
       <Text style={styleInicial.nomeEmpresa}>{nomeEmpresa}</Text>
       <Text style={styleInicial.ramo}>{ramo}</Text>
@@ -32,6 +33,8 @@ const ItemVP = ({nomeVaga, nomeEmpresa, ramo, local, data}) => (
         <Text style={{textAlign:'center',color:'white'}}>Ver Detalhes</Text>
       </TouchableOpacity>
     </View>
+    
+
   );
 
   export const ListaRenderVP = () => {
