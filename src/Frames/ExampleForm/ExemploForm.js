@@ -1,9 +1,10 @@
-import React from 'react';
-import {View, StyleSheet, TouchableOpacity, Text, ScrollView, Image} from 'react-native';
+import React, { useEffect, useState } from 'react';
+import {View, StyleSheet, TouchableOpacity, Text, ScrollView, Image, Button, Keyboard} from 'react-native';
 import {Formik} from 'formik';
-import TextInput from '../../Components/TextInput/TextInput';
+import TextInput from '../../Components/TextInput/TextInput'
 import validation from '../../../validation';
-import Forms from '../../../FormJson';
+
+import axiosApi from '../../routes/axios'
 
 
 
@@ -11,19 +12,40 @@ function ExampleForm({onSubmit, initialValues, navigation}) {
    const handleGoToLogin = () => {
     navigation.navigate("Login")
   } 
-  /* fetch('http://10.92.198.19:8080/usuario',{
-    method:'POST',
-    headers:{
-      Accept: 'application/json', 'Content-Type' : 'application/json'
-    },
-    body: JSON.stringify({})
 
-    .then(resposta => resposta.json())
-    .then( (json) => console.log(json))
-    .catch((error) => console.error(error))
+    const [nomeU, setNomeU] = useState(null)
+    const [emailU, setEmailU] = useState(null)
+    const [cpfU, setCpfU] = useState(null)
 
-  });
- */
+    const [senhaU, setSenhaU] = useState(null)
+    const [confirmarSenhaU, setConfirmarSenhaU] = useState(null)
+
+    const Post = async () => {
+
+      try {
+        const response = await axiosApi.post('/usuario', {
+          nome: nomeU,
+          email:emailU,
+          cpf: cpfU,
+          senha: senhaU,
+          confirmaSenha: confirmarSenhaU
+        }).then(({response}) => console.log(JSON.stringify(response)))
+      } catch (error) {
+        console.log(error.response)
+      }
+      console.log(nomeU + emailU + cpfU + senhaU );
+    }
+
+      function limpar() {
+        nomeU.value = null,
+        emailU.value = null,
+        cpfU.value = null,
+        senhaU.value = null,
+        confirmarSenhaU.value = null
+      }
+
+      
+ 
 
     const renderForm = ({
       values,
@@ -34,34 +56,29 @@ function ExampleForm({onSubmit, initialValues, navigation}) {
       handleSubmit,
       isValid,
       isSubmitting,
+    
     }) => {
       return (
         <View style={styles.container}> 
-     
+    
         <ScrollView style={styles.scrollbar} showsVerticalScrollIndicator={false}>
           <Image source={require('../../assets/logoPrincipalG.png')} style={styles.image}/>
-                
+             
+               
         
          {/* Nome completo do Usuario */}
+      
+
         <Text style={styles.text}>Nome completo</Text>
           <TextInput
             onChange={setFieldValue}
             onTouch={setFieldTouched}
             placeholder={"Digite seu nome completo"}
             name="name"
-            value={values.name}
-            error={touched.name && errors.name}
+            onChangeText={value => setNomeU(value)}
+            /* value={values.name} */
+            /* error={touched.name && errors.name} */
           />
-        {/* Apelido */}
-        <Text style={styles.text}>Apelido</Text>
-          <TextInput
-            onChange={setFieldValue}
-            onTouch={setFieldTouched}
-            placeholder={"Como voce quer ser chamado"}  
-            name="apelido"
-            value={values.apelido}
-            error={touched.apelido && errors.apelido}
-          />  
         {/* Email */}
         <Text style={styles.text}>Email</Text>
           <TextInput
@@ -71,9 +88,10 @@ function ExampleForm({onSubmit, initialValues, navigation}) {
             autoCapitalize="none"
             placeholder={"Digite seu Email"}
             name="email"
-            value={values.email}
-            error={touched.email && errors.email}
-            placeholderTextColor="red"
+            onChangeText={value => setEmailU(value)}
+          /*   value={values.email} */
+           /*  error={touched.email && errors.email} */
+           
           />
           {/* CPF */}
           <Text style={styles.text}>CPF</Text>
@@ -83,8 +101,9 @@ function ExampleForm({onSubmit, initialValues, navigation}) {
             placeholder={"CPF"}
             name="cpf"
             keyboardType='numeric'
-            value={values.cpf}
-            error={touched.cpf && errors.cpf}
+            onChangeText={value => setCpfU(value)}
+            /* value={values.cpf} */
+            /* error={touched.cpf && errors.cpf} */
           /> 
           {/* Senha */}
           <Text style={styles.text}>Senha</Text>
@@ -94,8 +113,9 @@ function ExampleForm({onSubmit, initialValues, navigation}) {
             placeholder={"Nova Senha"}
             name="password"
             secureTextEntry={true}
-            value={values.senha}
-            error={touched.password && errors.password}
+            onChangeText={value => setSenhaU(value)}
+            /* value={values.senha} */
+            /* error={touched.senha && errors.senha} */
           />
           {/* Confirmar Senha */}
           <Text style={styles.text}>Confirmar Senha</Text>
@@ -103,22 +123,33 @@ function ExampleForm({onSubmit, initialValues, navigation}) {
             onChange={setFieldValue}
             onTouch={setFieldTouched}
             placeholder={"Senha igual a anterior"}
-            name="passwordConfirm"
+            name="confirmarSenha"
             secureTextEntry={true}
-            value={values.passwordConfirm}
-            error={touched.passwordConfirm && errors.passwordConfirm}
+            onChangeText={value => setConfirmarSenhaU(value)}
+           /*  value={values.confirmarSenha} */
+            /* error={touched.confirmarSenha && errors.confirmarSenha} */
           />
-        
-        <Text style={{marginLeft:80}}>Li e estou de acordo com o <Text style={{color:'blue'}} >Termo de uso {'\n'}e Politica de Privacidade</Text></Text>
-          {/* Enviar Formulario */}
+
+          {/* lgpd */}
+
+
+                 {/* Enviar Formulario */}
           <TouchableOpacity
             disabled={!isValid || isSubmitting}
-            onPress={handleSubmit}
+            onPress={()=>{
+              limpar() +
+              Keyboard.dismiss +
+              handleSubmit +
+              Post() +
+              handleGoToLogin()
+              
+             
+            }}
             style={StyleSheet.flatten([
               styles.submit,
               !isValid ? styles.submitDisabled : null,
             ])}>
-            <Text style={styles.submitText}>Cadastrar</Text>
+            <Text style={styles.submitText} >Cadastrar</Text>
           </TouchableOpacity>
             <Text style={styles.fazerLogin} onPress={handleGoToLogin}>
               Fazer Login
@@ -133,7 +164,7 @@ function ExampleForm({onSubmit, initialValues, navigation}) {
         initialValues={initialValues}
         onSubmit={onSubmit}
         render={renderForm}
-        validationSchema={validation}
+        /* validationSchema={validation} */
       />
     );
 
@@ -161,7 +192,7 @@ function ExampleForm({onSubmit, initialValues, navigation}) {
       width:125,
       height: 53,
       flex:1,
-      backgroundColor:'black',
+      backgroundColor:'#ed7a11',
       justifyContent: 'center',
       alignItems: 'center',
       marginHorizontal:145,

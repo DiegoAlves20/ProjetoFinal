@@ -3,7 +3,6 @@ import {View, Text, StyleSheet, TextInput as RNTextInput} from 'react-native';
 
 
 export default function TextInput({
-
     style,
     inputStyle,
     error,
@@ -13,21 +12,15 @@ export default function TextInput({
     name,
     maxLength,
     ...attributes
-
 }){
     const onChange2 = text => {
         onChange(name, text);
       };
-    
-      const onBlurText = () => {
+    const onBlurText = () => {
         onTouch(name);
       };
-
       return (
         <View style={StyleSheet.flatten([styles.container, style])}>
-          
-          
-
           <View style={styles.inputContainer}>
             <RNTextInput
               style={StyleSheet.flatten([styles.inputStyle, inputStyle])}
@@ -77,7 +70,6 @@ const styles = StyleSheet.create({
     },
     error: {
       marginLeft:120,
-      
       color: 'red',
       fontSize: 12,
     },

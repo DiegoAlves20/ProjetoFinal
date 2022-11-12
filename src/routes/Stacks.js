@@ -18,8 +18,10 @@ import ResumoCurriculo from "../Frames/Perfil/Curriculo/ResumoCV";
 
 import { CadCVPessoal } from "../Frames/Perfil/Curriculo/CadCVPessoal/CadCVPes";
 import LoginUsuario from "../Frames/Login/LoginU";
+import Box from "./shareds";
 
 const Stack = createNativeStackNavigator();
+
 
 function Log({navigation}) {
   useEffect(() =>{
@@ -28,18 +30,22 @@ function Log({navigation}) {
       navigation.getParent().setOptions({tabBarStyle: {display: 'flex'}})
     )
   },[])
-
 }
+
 export function Logi() {
   return(
-    <Stack.Navigator initialRouteName="Login">
+    <Stack.Navigator initialRouteName="shared">
+
+      <Stack.Screen name="shared" component={Box}/>
+         <Stack.Screen name="api" component={Connection} />
+
       <Stack.Screen name="Login" component={LoginUsuario} options={{title:'',headerTransparent: true,headerShown: false,}}/>
       <Stack.Screen name="Alterar Senha" component={AlteraSenha} options={{title:'',headerTransparent: true,headerShown: false,}}/>
       <Stack.Screen name="Cadastro" component={ExampleForm} options={{title:'',headerTransparent:true,headerShown: false,}}/>
-    </Stack.Navigator>
+         </Stack.Navigator>
+
   )
 }
-
 
 export function Home(){
   return(
@@ -47,7 +53,6 @@ export function Home(){
       <Stack.Screen name="Tela Inicial" component={TelaInicial} options={{title:'',headerTransparent: true,headerShown: false,}}/>
       <Stack.Screen name="Menu" component={Menu} />
       <Stack.Screen name="Login" component={LoginUsuario} />
-     {/*  <Stack.Screen name="api" component={Connection} options={{title:'API USUARIO'}}/>   */}
     </Stack.Navigator>
 )}
 

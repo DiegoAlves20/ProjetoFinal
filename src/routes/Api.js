@@ -1,11 +1,11 @@
 import React, {useState, useEffect} from "react";
 import { View, Text, TouchableOpacity, ScrollView} from "react-native";
 import { styleInicial } from "../Frames/HomePage/StyleHome";
-
-export const url = 'http://10.92.198.40:8080/usuario/';
+export const url = 'http://10.92.198.40:8080/api/empresa/vaga/';
 
 const Connection = () => {
-    const [resourceType, setResourceType] = useState();
+
+    const [resourceType, setResourceType] = useState([]);
     const [items, setItems] = useState([])
    
     useEffect(() => {
@@ -20,28 +20,29 @@ const Connection = () => {
             fetchRT();
     }, [resourceType])
 
-
     const changeRT = (resourceType) => {
         setResourceType(resourceType);
     }
 
     return(
         <ScrollView>
-            
-            
-                {items.map((item) => (
+
+                {items.map(cr => (
                     <View style={styleInicial.item}>
                         {/* renderizando id's do banco de dados */}
                         <>
                         {
                            <View>
-                                <Text> {item.nome}</Text>
-                                <Text> {item.email}</Text>
+                                <Text> {cr.tituloVaga}</Text>
+                                <Text> {cr.emailContato}</Text>
+                                <Text> {cr.whatsapp}</Text>
+                                <Text> {cr.contato}</Text>
+                                <Text> {cr.desejavel}</Text>
                             </View> 
                         }
                         </>
                         <TouchableOpacity 
-                        onPress={ () => changeRT("todos")}
+                        onPress={ () => changeRT("")}
                         
                         style={{
                             backgroundColor:'#ed7a11',
@@ -50,7 +51,6 @@ const Connection = () => {
                             top:20, width:'50%',
                             borderRadius:10,
                             left:'25%'
-                        
                         }}
                         >
                             <Text style={{textAlign:'center', color:'white', fontSize:18}}>Ver detalhes</Text>
@@ -62,4 +62,17 @@ const Connection = () => {
         </ScrollView>
     )
 }
+
+/* export const ListaRenderVagas = () => {
+    const renderItem = ({item}) => (
+      <ItemVagas
+        nomeVaga={item.tituloVaga}
+        nomeEmpresa={item.}
+        ramo={item.whatsapp}
+        local={item.contato}
+        data={item.desejavel}
+       />       
+    ) */
+
+
 export default Connection

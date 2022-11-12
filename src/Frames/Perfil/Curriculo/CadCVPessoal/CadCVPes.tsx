@@ -13,6 +13,8 @@ interface IAdress {
   uf?: string,
 }
 
+
+
 export function CadCVPessoal({navigation}) {
   
   const handleGoToBack = () =>{

@@ -1,4 +1,4 @@
-import * as Yup from 'yup';
+/* import * as Yup from 'yup';
 export default Yup.object().shape({
     name: Yup.string()
       
@@ -22,3 +22,4 @@ export default Yup.object().shape({
     .required('Obrigatório')
   });
   
+ */

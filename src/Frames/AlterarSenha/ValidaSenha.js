@@ -50,7 +50,12 @@ export default function AlteraSenha({navigation}) {
                         onChangeText={()=>{}}
                     > 
                     </TextInput>
-                    <TouchableOpacity onPress={() =>{navigation.navigate('Login')}}>
+                <TouchableOpacity onPress={() =>{
+                    
+                    navigation.navigate('Login') +
+                    navigation.navigate('ConfirmaSenha');
+            
+            }}>
                     <Text style={styleSenha.botao}>Aletrar</Text>
                 </TouchableOpacity>
                 </View>

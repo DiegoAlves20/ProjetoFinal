@@ -6,6 +6,7 @@ import styleLogin from './Style';
 
 
 export default function LoginUsuario({ navigation }) {
+    
     useEffect(() =>{
         navigation.getParent().setOptions({tabBarStyle: {display: 'none'}})
     },[])
@@ -20,6 +21,7 @@ export default function LoginUsuario({ navigation }) {
         navigation.navigate("Tela Inicial")
     } 
    
+
     return (
         <View>
             <ScrollView showsVerticalScrollIndicator={false}>
@@ -34,7 +36,7 @@ export default function LoginUsuario({ navigation }) {
                     </View>
                     <View style={styleLogin.container}>
                         <Text style={styleLogin.textInput}>
-                            Login
+                            CPF
                         </Text>
                         <TextInput style={styleLogin.input}
                             placeholder="Insira seu CPF"
@@ -51,7 +53,7 @@ export default function LoginUsuario({ navigation }) {
                         />
 
                         <TouchableOpacity >
-                            <Text style={styleLogin.link} onPress={handleGoToEsqueceuSenha}>
+                            <Text style={styleLogin.link} >
                                 Esqueceu a senha?
                             </Text>
                         </TouchableOpacity>
