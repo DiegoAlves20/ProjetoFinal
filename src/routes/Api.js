@@ -1,11 +1,12 @@
 import React, {useState, useEffect} from "react";
 import { View, Text, TouchableOpacity, ScrollView} from "react-native";
 import { styleInicial } from "../Frames/HomePage/StyleHome";
+import { StyleSheet } from "react-native";
 
-export const url = 'http://10.92.198.40:8080/usuario/';
+export const url = '';
 
 const Connection = () => {
-    const [resourceType, setResourceType] = useState();
+    const [resourceType, setResourceType] = useState([]);
     const [items, setItems] = useState([])
    
     useEffect(() => {
@@ -28,7 +29,7 @@ const Connection = () => {
     return(
         <ScrollView>
             
-            
+            <View>
                 {items.map((item) => (
                     <View style={styleInicial.item}>
                         {/* renderizando id's do banco de dados */}
@@ -59,7 +60,10 @@ const Connection = () => {
                      
                     </View>
                 ))}
+
+            </View>     
         </ScrollView>
+
     )
 }
 export default Connection

@@ -11,6 +11,7 @@ import Perfil from "../Frames/Perfil/Perfi";
 import { Menu } from "../Frames/Menu";
 
 
+
 import Connection from "./Api"; 
 import AlteraCad from "../Frames/alteraCad/AltCad";
 import ResumoCurriculo from "../Frames/Perfil/Curriculo/ResumoCV";
@@ -18,6 +19,8 @@ import ResumoCurriculo from "../Frames/Perfil/Curriculo/ResumoCV";
 
 import { CadCVPessoal } from "../Frames/Perfil/Curriculo/CadCVPessoal/CadCVPes";
 import LoginUsuario from "../Frames/Login/LoginU";
+import { CvProf } from "../Frames/Perfil/Curriculo/CadCVProfissional/CadCVPro";
+import Filtro from "../Frames/Vagas/FiltroVagas";
 
 const Stack = createNativeStackNavigator();
 
@@ -33,8 +36,10 @@ function Log({navigation}) {
 export function Logi() {
   return(
     <Stack.Navigator initialRouteName="Login">
+      {/* <Stack.Screen name="Api" component={Connection} options={{title:'API USUARIO'}}/>  */}
       <Stack.Screen name="Login" component={LoginUsuario} options={{title:'',headerTransparent: true,headerShown: false,}}/>
       <Stack.Screen name="Alterar Senha" component={AlteraSenha} options={{title:'',headerTransparent: true,headerShown: false,}}/>
+      <Stack.Screen name="Validação de Email" component={RecuperaSenha} />
       <Stack.Screen name="Cadastro" component={ExampleForm} options={{title:'',headerTransparent:true,headerShown: false,}}/>
     </Stack.Navigator>
   )
@@ -55,6 +60,7 @@ export function Vagas(){
   return( 
     <Stack.Navigator>
       <Stack.Screen name="vaga" component={Vaga} options={{title:'Vaga',headerTransparent: true, headerShown: false,}}/>
+      <Stack.Screen name="filtro" component={Filtro} options={{title:'Filtro',headerTransparent: true, headerShown: false,}}/>
      </Stack.Navigator>
 )}
 export function Favoritos(){
@@ -71,6 +77,7 @@ export function Perfils(){
       <Stack.Screen name="ResCV" component={ResumoCurriculo} options={{title: 'Resumo do Curriculo',headerTransparent: true, headerShown: false,}}/>
       <Stack.Screen name="AlterSenha" component={AlteraSenha} options={{title:'',headerTransparent: true,headerShown: false,}}/>
       <Stack.Screen name="Editar dados cadastrais" component={CadCVPessoal} options={{title:'Editar CV Pessoal', headerTransparent: true,headerShown: false }}/> 
+      <Stack.Screen name="Editar dados profissionais" component={CvProf} options={{title:'Editar CV Profissional', headerTransparent: true,headerShown: false }}/> 
    </Stack.Navigator>
 )}
 

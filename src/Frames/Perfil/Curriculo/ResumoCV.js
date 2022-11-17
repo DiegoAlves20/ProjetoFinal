@@ -2,6 +2,8 @@
 import React, {useEffect} from 'react';
 import { View, KeyboardAvoidingView,  Text,  TouchableOpacity, ScrollView } from 'react-native';
 import { StylesResumoCV } from './StyleRSCV';
+import { Icon } from 'react-native-vector-icons/Icon';
+import { Exportar } from '../../../Components/icons';
 
 export default function ResumoCurriculo({navigation}) {
     const handleGoBack = () => {
@@ -68,14 +70,16 @@ export default function ResumoCurriculo({navigation}) {
                     <Text style={StylesResumoCV.dados}>Principais atividades</Text>
                     <Text style={StylesResumoCV.dados}> {'item.Editar'}  descricao do que foi feito no trabalho</Text>
                     
-                    <TouchableOpacity style={StylesResumoCV.botao}>
+                    <TouchableOpacity style={StylesResumoCV.botao} onPress={() => navigation.navigate('Editar dados profissionais')}>
                         <Text style={StylesResumoCV.editarDados}> {'item.Editar'}  Editar dados Profissionais</Text>
                     </TouchableOpacity>
                 
                 </View>
 
                     <TouchableOpacity style={StylesResumoCV.link} onPress={() => {}}>
-                        <Text style={StylesResumoCV.linkExpo}>Exportar Curriculo</Text>
+                        <Text style={StylesResumoCV.linkExpo}> 
+                        <Exportar></Exportar>
+                        Exportar Curriculo</Text>
                     </TouchableOpacity>
 
 
