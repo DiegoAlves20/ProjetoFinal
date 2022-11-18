@@ -316,7 +316,7 @@ def isNewArchitectureEnabled() {
 
 //Exucação do vector icons
 project.ext.vectoricons = [
-    iconFontNames: [ 'Feather.ttf' ] // nome da fonte que sera usada no progama !!!
+    iconFontNames: [ 'FontAwesome.ttf' ] // nome da fonte que sera usada no progama !!!
 ]
 
 //Aplicando as fonte no node_modules

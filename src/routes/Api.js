@@ -59,7 +59,9 @@ const Connection = () => {
                      
                     </View>
                 ))}
+     
         </ScrollView>
+
     )
 }
 

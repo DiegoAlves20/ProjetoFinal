@@ -10,5 +10,4 @@ import { LogBox } from 'react-native';
 LogBox.ignoreLogs(['Warning: ...']);
 LogBox.ignoreAllLogs();
 
-
 AppRegistry.registerComponent(appName, () => App);
