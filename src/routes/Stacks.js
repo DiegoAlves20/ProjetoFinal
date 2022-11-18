@@ -34,10 +34,9 @@ function Log({navigation}) {
 
 export function Logi() {
   return(
-    <Stack.Navigator initialRouteName="shared">
+    <Stack.Navigator initialRouteName="login">
 
-      <Stack.Screen name="shared" component={Box}/>
-         <Stack.Screen name="api" component={Connection} />
+      
 
       <Stack.Screen name="Login" component={LoginUsuario} options={{title:'',headerTransparent: true,headerShown: false,}}/>
       <Stack.Screen name="Alterar Senha" component={AlteraSenha} options={{title:'',headerTransparent: true,headerShown: false,}}/>

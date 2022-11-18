@@ -3,8 +3,9 @@ import { View, Text, TouchableOpacity, ScrollView} from "react-native";
 import { styleInicial } from "../Frames/HomePage/StyleHome";
 export const url = 'http://10.92.198.40:8080/api/empresa/vaga/';
 
-const Connection = () => {
 
+
+const Connection = () => {
     const [resourceType, setResourceType] = useState([]);
     const [items, setItems] = useState([])
    
@@ -26,18 +27,17 @@ const Connection = () => {
 
     return(
         <ScrollView>
-
-                {items.map(cr => (
+                {items.map(item => (
                     <View style={styleInicial.item}>
                         {/* renderizando id's do banco de dados */}
                         <>
                         {
                            <View>
-                                <Text> {cr.tituloVaga}</Text>
-                                <Text> {cr.emailContato}</Text>
-                                <Text> {cr.whatsapp}</Text>
-                                <Text> {cr.contato}</Text>
-                                <Text> {cr.desejavel}</Text>
+                                <Text> {item.tituloVaga}</Text>
+                                <Text> {item.emailContato}</Text>
+                                <Text> {item.whatsapp}</Text>
+                                <Text> {item.contato}</Text>
+                                <Text> {item.desejavel}</Text>
                             </View> 
                         }
                         </>

@@ -1,60 +1,56 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import { View, Text, FlatList, TouchableOpacity } from "react-native";
 import { styleInicial } from "../Frames/HomePage/StyleHome";
+const url = 'http://10.92.198.40:8080/api/empresa/vaga/';
 
-const DATA = [
-    {
-      id:'',
-      nomeVaga:'Progamador Android - Kotlin',
-      nomeEmpresa:'gitsoluções',
-      ramo:'Engenharia',
-      local:'COTIA - SP',
-      data:'12/04'
-    },
-    {
-      id:'',
-      nomeVaga:'Progamador Android - Kotlin',
-      nomeEmpresa:'gitsoluções',
-      ramo:'Engenharia',
-      local:'COTIA - SP',
-      data:'12/04'
-    },
-    {
-      id:'',
-      nomeVaga:'Progamador Android - Kotlin',
-      nomeEmpresa:'gitsoluções',
-      ramo:'Engenharia',
-      local:'COTIA - SP',
-      data:'12/04'
-    }, 
-  ];
-  const Item = ({nomeVaga, nomeEmpresa, ramo, local, data}) => (
+
+export const ListaRender = () => {
+
+  const [resourceType, setResourceType] = useState([]);
+  const [items, setItems] = useState([])
+  
+  useEffect(() => {
+      const fetchRT = async () => {
+          const response = await 
+          /* fetch da API */
+              fetch(`${url}${resourceType}`);
+          const responseJSON = await response.json();
+          setItems(responseJSON)
+          
+          console.log(responseJSON) 
+      };
+          fetchRT();
+  }, [])
+
+  const changeRT = (resourceType) => {
+      setResourceType(resourceType);
+  }
+  const Item = ({vaga}) => (
       <View style={styleInicial.item}>
-        <Text style={styleInicial.nomeVaga}>{nomeVaga}</Text>
-        <Text style={styleInicial.nomeEmpresa}>{nomeEmpresa}</Text>
-        <Text style={styleInicial.ramo}>{ramo}</Text>
-        <Text style={styleInicial.local}>{local}</Text>
-        <Text style={styleInicial.data}>{data}</Text>
+        <Text style={styleInicial.nomeVaga}>{vaga.tituloVaga}</Text>
+        <Text style={styleInicial.nomeEmpresa}>{vaga.emailContato}</Text>
+        <Text style={styleInicial.ramo}>{vaga.contratacao}</Text>
+        <Text style={styleInicial.local}>{vaga.periodo}</Text>
+ 
         <TouchableOpacity style={styleInicial.btn}>
-          <Text style={{textAlign:'center',color:'white'}}>Ver Detalhes</Text>
+          <Text style={{textAlign:'center',color:'white'}} >Ver Detalhes</Text>
         </TouchableOpacity>
       </View>
     );
- export const ListaRender = () => {
+
     const renderItem = ({item}) => (
       <Item 
-        nomeVaga={item.nomeVaga}
-        nomeEmpresa={item.nomeEmpresa}
-        ramo={item.ramo}
-        local={item.local}
-        data={item.data}
+        vaga = {item}
        />              
     )
     return (
       <FlatList
-      style={styleInicial.lista}
-      data={DATA}
-      renderItem={renderItem}
-      keyExtractor={item => item.id}/>
+
+
+
+        style={styleInicial.lista}
+        data={items}
+        renderItem={renderItem}
+        keyExtractor={item => item.id}/>
       )
   }
