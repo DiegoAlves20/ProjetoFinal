@@ -24,7 +24,10 @@ const Connection = () => {
     const changeRT = (resourceType) => {
         setResourceType(resourceType);
     }
+        
 
+
+    
     return(
         <ScrollView>
                 {items.map(item => (
