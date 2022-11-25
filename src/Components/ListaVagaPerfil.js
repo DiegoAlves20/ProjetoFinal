@@ -30,14 +30,17 @@ import { styleInicial } from "../Frames/HomePage/StyleHome";
       <Text style={styleInicial.local}>{local}</Text>
       <Text style={styleInicial.data}>{data}</Text>
       <TouchableOpacity style={styleInicial.btn}>
-        <Text style={{textAlign:'center',color:'white'}}>Ver Detalhes</Text>
+        <Text style={{textAlign:'center',color:'white'}} >Ver Detalhes</Text>
       </TouchableOpacity>
     </View>
     
 
   );
 
-  export const ListaRenderVP = () => {
+ 
+    
+  
+export const ListaRenderVP = ({navigation}) => {
     const renderItem = ({item}) => (
       <ItemVP
         nomeVaga={item.nomeVaga}

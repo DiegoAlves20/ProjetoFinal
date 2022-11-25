@@ -20,6 +20,8 @@ import ResumoCurriculo from "../Frames/Perfil/Curriculo/ResumoCV";
 import { CadCVPessoal } from "../Frames/Perfil/Curriculo/CadCVPessoal/CadCVPes";
 import LoginUsuario from "../Frames/Login/LoginU";
 import Box from "./shareds";
+import DescricaoVagas from "../Components/Modal/MDescVagas";
+import { ListaRender } from "../Components/ListaVagaRecente";
 
 const Stack = createNativeStackNavigator();
 
@@ -33,17 +35,16 @@ function Log({navigation}) {
   },[])
 }
 
+
 export function Logi() {
   return(
     <Stack.Navigator initialRouteName="login">
-
-      
 
       <Stack.Screen name="Login" component={LoginUsuario} options={{title:'',headerTransparent: true,headerShown: false,}}/>
       <Stack.Screen name="Alterar Senha" component={AlteraSenha} options={{title:'',headerTransparent: true,headerShown: false,}}/>
       <Stack.Screen name="Validação de Email" component={RecuperaSenha} />
       <Stack.Screen name="Cadastro" component={ExampleForm} options={{title:'',headerTransparent:true,headerShown: false,}}/>
-         </Stack.Navigator>
+      </Stack.Navigator>
 
   )
 }
@@ -52,13 +53,21 @@ export function Home(){
   return(
     <Stack.Navigator>
       <Stack.Screen name="Tela Inicial" component={TelaInicial} options={{title:'',headerTransparent: true,headerShown: false,}}/>
+      <Stack.Screen name="LR" component={LR} />
       <Stack.Screen name="Menu" component={Menu} />
       <Stack.Screen name="Login" component={LoginUsuario} />
     </Stack.Navigator>
 )}
+function LR() {
+  return(
+    <Stack.Navigator>
+      <Stack.Screen name="Descricao da vaga" component={ListaRender} />
+    </Stack.Navigator>
+  )
+}
 
 export function Vagas(){
-  return( 
+  return(
     <Stack.Navigator>
       <Stack.Screen name="vaga" component={Vaga} options={{title:'Vaga',headerTransparent: true, headerShown: false,}}/>
       <Stack.Screen name="filtro" component={Filtro} options={{title:'Filtro',headerTransparent: true, headerShown: false,}}/>

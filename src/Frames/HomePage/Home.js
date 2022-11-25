@@ -15,6 +15,7 @@ export default function TelaInicial({navigation}) {
     <View>
       <ScrollView >
         <View style={styleInicial.header}>
+
           <Image style={styleInicial.image} source={require('../../assets/fotoPerfil.png')} />
           <Text style={styleInicial.nome}>{'item.nomeUsuario'}</Text>
           <TouchableOpacity onPress={handleGoToMenu} >
@@ -25,12 +26,13 @@ export default function TelaInicial({navigation}) {
 
           
         </View>
-        <Text style={styleInicial.vagaRecente}>Vagas Recentes</Text>
+
+        <Text style={styleInicial.vagaRecente} >Vagas Recentes</Text>
         <ListaRender />
         
         
         <View style={styleInicial.viewVP}>
-          <Text style={styleInicial.vagaPerfil}>Vagas com seu perfil !!!</Text>
+         
           <ListaRenderVP/>
         </View> 
        <View>

@@ -1,11 +1,13 @@
 import React, {useEffect, useState} from "react";
 import { View, Text, FlatList, TouchableOpacity } from "react-native";
 import { styleInicial } from "../Frames/HomePage/StyleHome";
+import DescricaoVagas from "./Modal/MDescVagas"; 
 const url = 'http://10.92.198.40:8080/api/empresa/vaga/';
 
 
 export const ListaRender = () => {
 
+ 
   const [resourceType, setResourceType] = useState([]);
   const [items, setItems] = useState([])
   
@@ -13,7 +15,7 @@ export const ListaRender = () => {
       const fetchRT = async () => {
           const response = await 
           /* fetch da API */
-              fetch(`${url}${resourceType}`);
+            fetch(`${url}${resourceType}`);
           const responseJSON = await response.json();
           setItems(responseJSON)
           
@@ -33,7 +35,8 @@ export const ListaRender = () => {
         <Text style={styleInicial.local}>{vaga.periodo}</Text>
  
         <TouchableOpacity style={styleInicial.btn}>
-          <Text style={{textAlign:'center',color:'white'}} >Ver Detalhes</Text>
+        <DescricaoVagas/>
+
         </TouchableOpacity>
       </View>
     );
@@ -45,8 +48,6 @@ export const ListaRender = () => {
     )
     return (
       <FlatList
-
-
 
         style={styleInicial.lista}
         data={items}
