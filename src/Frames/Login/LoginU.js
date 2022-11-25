@@ -1,12 +1,15 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState, useContext} from 'react';
 import { View, KeyboardAvoidingView, Image, Text, TextInput, TouchableOpacity, StatusBar, ScrollView  } from 'react-native';
 import styleLogin from './Style';
-
+import axiosLogin from "../../routes/axios"
+import { Context } from '../../context/authContext';
 /* import Icon from  'react-native-vector-icons/Feather'; */
 
 
 export default function LoginUsuario({ navigation }) {
-    
+  const state = useContext(Context) 
+  console.log(state)
+  
     useEffect(() =>{
         navigation.getParent().setOptions({tabBarStyle: {display: 'none'}})
     },[])
@@ -17,11 +20,25 @@ export default function LoginUsuario({ navigation }) {
     const handleGoToEsqueceuSenha = () => {
         navigation.navigate("Validação de Email")
     } 
-    const handleGoToAcessar = () => {
-        navigation.navigate("Tela Inicial")
-    } 
-   
 
+   
+     var [senhaU, setSenhaU] = useState(null)
+     var [cpfU, setCpfU] = useState(null)
+
+    const SingIn = async  () =>{
+       
+        try{
+        const login = await axiosLogin.post('/usuario', {
+            email:senhaU,
+            cpf: cpfU,
+        }).then(({response}) => console.log(JSON.stringify(response)))
+        }catch (error) {
+            console.log(error.response)
+        }
+          console.log(cpfU + senhaU );
+    
+       
+    }
     return (
         <View>
             <ScrollView showsVerticalScrollIndicator={false}>
@@ -41,7 +58,7 @@ export default function LoginUsuario({ navigation }) {
                         <TextInput style={styleLogin.input}
                             placeholder="Insira seu CPF"
                             autoCorrect={false}
-                            onChangeText={() => { }}
+                            onChangeText={value => setCpfU(value)}
                         />
                         <Text style={styleLogin.textInput}>
                             Senha
@@ -49,7 +66,7 @@ export default function LoginUsuario({ navigation }) {
                         <TextInput style={styleLogin.input}
                             placeholder="Insira sua Senha"
                             autoCorrect={false}
-                            onChangeText={() => { }}
+                            onChangeText={value => setSenhaU(value)}
                         />
 
                         <TouchableOpacity >
@@ -62,8 +79,9 @@ export default function LoginUsuario({ navigation }) {
                         >
                             <Text style={styleLogin.botao} onPress={ () =>{ 
                                 navigation.getParent().setOptions({tabBarStyle: {display: 'flex'}})
-                                navigation.navigate('Tela Inicial')
-                            } }>Acessar</Text>
+                                navigation.navigate("Tela Inicial")
+                                
+                            }}>Acessar</Text>
                         </TouchableOpacity>
 
                         <TouchableOpacity >

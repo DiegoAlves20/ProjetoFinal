@@ -33,7 +33,7 @@ export const ListaRender = () => {
         <Text style={styleInicial.local}>{vaga.periodo}</Text>
  
         <TouchableOpacity style={styleInicial.btn}>
-          <Text style={{textAlign:'center',color:'white'}} >Ver Detalhes</Text>
+          <Text style={{textAlign:'center',color:'white'}} onPress={() =>{}} >Ver Detalhes</Text>
         </TouchableOpacity>
       </View>
     );

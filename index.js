@@ -11,3 +11,9 @@ LogBox.ignoreLogs(['Warning: ...']);
 LogBox.ignoreAllLogs();
 
 AppRegistry.registerComponent(appName, () => App);
+
+export default () => {
+    <Provider>
+      <App />
+    </Provider>
+  }

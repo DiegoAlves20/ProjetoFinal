@@ -30,7 +30,8 @@ const Connection = () => {
     
     return(
         <ScrollView>
-                {items.map(item => (
+                {
+                items.map(item => (
                     <View style={styleInicial.item}>
                         {/* renderizando id's do banco de dados */}
                         <>

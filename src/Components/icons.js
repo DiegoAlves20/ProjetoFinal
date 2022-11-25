@@ -101,6 +101,11 @@ export const GoBack = () => {
         <Icon name="arrow-left" size={size} color='#000000' />
     )
 }
+export const GoBackVaga = () => {
+    return (
+        <Icon name="arrow-left" size={28} color='#FFF' />
+    )
+}
 
 export const Vaga = () => {
     return (
@@ -126,9 +131,9 @@ export const Icones = ()  => {
             <Compartilhar/>
             <SetaCima/>
             <SetaBaixo/>
-            <Vagas/>
+            <Vaga/>
             <GoBack/>
-
+            <GoBackVaga/>
         </View>
     )
 }
