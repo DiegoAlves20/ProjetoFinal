@@ -4,6 +4,7 @@ import { View,Text, TouchableOpacity } from "react-native";
 export const Menu = ({navigation}) => {
     useEffect(() =>{
         navigation.getParent().setOptions({tabBarStyle: {display: 'none'}})
+        
 
     },[])
     

@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { View, KeyboardAvoidingView, Text, TextInput, TouchableOpacity, StatusBar, ScrollView } from 'react-native';
 import styleFiltro from '../Vagas/FiltroStyles'
 
-export default function Filtro () {
+export default function Filtro() {
 
  /*   const DescricaoVagas = () => {
     navigation.navigate('Filtro')

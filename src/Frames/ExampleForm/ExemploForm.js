@@ -16,9 +16,9 @@ function ExampleForm({onSubmit, initialValues, navigation}) {
     const [nomeU, setNomeU] = useState(null)
     const [emailU, setEmailU] = useState(null)
     const [cpfU, setCpfU] = useState(null)
-
     const [senhaU, setSenhaU] = useState(null)
     const [confirmarSenhaU, setConfirmarSenhaU] = useState(null)
+
 
     const Post = async () => {
 
@@ -30,22 +30,12 @@ function ExampleForm({onSubmit, initialValues, navigation}) {
           senha: senhaU,
           confirmaSenha: confirmarSenhaU
         }).then(({response}) => console.log(JSON.stringify(response)))
+        return "usuario cadastrado"
       } catch (error) {
         console.log(error.response)
       }
       console.log(nomeU + emailU + cpfU + senhaU );
     }
-
-      function limpar() {
-        nomeU.value = null,
-        emailU.value = null,
-        cpfU.value = null,
-        senhaU.value = null,
-        confirmarSenhaU.value = null
-      }
-
-      
- 
 
     const renderForm = ({
       values,
@@ -137,7 +127,6 @@ function ExampleForm({onSubmit, initialValues, navigation}) {
           <TouchableOpacity
             disabled={!isValid || isSubmitting}
             onPress={()=>{
-              limpar() +
               Keyboard.dismiss +
               handleSubmit +
               Post() +

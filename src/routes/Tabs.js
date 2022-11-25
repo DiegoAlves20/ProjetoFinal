@@ -30,20 +30,7 @@ export default function Tabs(){
         }
       }
     > 
-      <Tab.Screen name="log" component={Logi} options={{ headerTransparent: true, headerShown: false,
-       tabBarIcon : ()=>{
-        return(
-          <View>
-            <PaginaInicial/>
-          </View>
-        )
-       } 
-    
-    }} 
       
-      
-      
-      />
       <Tab.Screen name='Tela Inicial' component={Home}          options={{ headerTransparent: true, headerShown: false,
       
       tabBarIcon : ()=>{
@@ -65,6 +52,7 @@ export default function Tabs(){
       
       }}/>
       <Tab.Screen name='Favorito' component={Favoritos}         options={{ headerTransparent: true, headerShown: false,
+      
        tabBarIcon : ()=>{
         return(
           <View>
