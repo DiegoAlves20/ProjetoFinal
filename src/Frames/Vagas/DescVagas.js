@@ -1,32 +1,66 @@
-import React, { useState } from 'react';
+import { useNavigation, useRoute } from '@react-navigation/native';
+import React, { useState, useEffect} from 'react';
 import { View, KeyboardAvoidingView, Image, Text, TouchableOpacity,ScrollView, Modal  } from 'react-native';
-import StylesDescVagas from '../../Frames/Vagas/DescVagasStyles';
-import { ModalContato } from './MContato'
+import StylesDescVagas from './DescVagasStyles';
+import { ModalContato } from '../../Components/Modal/MContato'
+import apiDescVaga from './index'
 
 
-export default function DescricaoVagas ({navigation}) {
-    const   ResumoCurriculo = () => {
+ 
+ const DescricaoVagas = () =>{
+  
+  
+    /* const   ResumoCurriculo = () => {
         navigation.navigate('Resumo CV')
-    } 
+    }  *
+
+    /* const [visivel, setVisivel]=useState(false) */
+ 
+    const navigation = useNavigation();
+    const route = useRoute();
+
+    const [vagaInfo, setVagaInfo] = useState({
+        id: route.params.id,
+        nomeVaga: route.params.tituloVaga,
+        nomeEmpresa: route.params.empresa,
+        contratacao: route.params.contratacao,
+        periodo: route.params.periodo
     
-    const [visivel, setVisivel]=useState(false)
+  })
+  
 
+  useEffect(()=>{
+    const getDescVagas = async () => {
+        let json = await apiDescVaga.getVagaDesc(vagaInfo.id)
+        if(json.error == ""){
+
+        }else{
+            alert("Erro"+json.error);
+        }
+
+    };
+        getDescVagas()
+    
+    },[])
+    
+    
+  
+    
     return (
-<View>
-        <Modal 
-        transparent={true}
-        animationType={"slide"}
-        visible={visivel}
->
-        <ScrollView>
-           
-            
-            <TouchableOpacity>
-                        <Text style={StylesDescVagas.linkTitulo} onPress={()=> {setVisivel(false)}}>X</Text> 
-                </TouchableOpacity>
-
+    
+    <View>
+        
+      
+        <Text>vaga: {vagaInfo.contratacao}</Text>
         
 
+    </View>
+)
+}
+
+export default DescricaoVagas
+
+ {/*  <ScrollView>
             <KeyboardAvoidingView style={StylesDescVagas.container}>
 
                 <View style={StylesDescVagas.cabecalho}> 
@@ -80,21 +114,9 @@ export default function DescricaoVagas ({navigation}) {
                 </View> 
                 <View>
 
-                   < ModalContato/>
+                   <ModalContato/>
                 </View>
 
-
-               
-                
             </KeyboardAvoidingView>
         </ScrollView>
-        </Modal>
-
-        <View>
-              <TouchableOpacity >
-                    <Text onPress={()=> {setVisivel(true)}} style={{fontSize:16, textAlign:'center', color:'white'}}>Ver detalhes</Text> 
-              </TouchableOpacity>
-        </View>
-
-    </View>
-);}
+       */}

@@ -1,56 +1,26 @@
 import React from "react";
 import { TouchableOpacity,Text,View,FlatList } from "react-native";
 import { styleInicial } from "../HomePage/StyleHome";
-    const DATA = [
-        {
-            id:'',
-            nomeVaga:'Desenvolvedor Java Sênior',
-            nomeEmpresa:'Salesforce',
-            ramo:'Soluções de TI',
-            local:'Itapevi - SP',
-            data:'12/04'
-        },
-        {
-            id:'',
-            nomeVaga:'Desenvolvedor Java Sênior',
-            nomeEmpresa:'Salesforce',
-            ramo:'Soluções de TI',
-            local:'Itapevi - SP',
-            data:'12/04'
-        },
-        {
-            id:'',
-            nomeVaga:'Desenvolvedor Java Sênior',
-            nomeEmpresa:'Salesforce',
-            ramo:'Soluções de TI',
-            local:'Itapevi - SP',
-            data:'12/04'
-        },
-        {
-            id:'',
-            nomeVaga:'Desenvolvedor Java Sênior',
-            nomeEmpresa:'Salesforce',
-            ramo:'Soluções de TI',
-            local:'Itapevi - SP',
-            data:'12/04'
-        },
-        {
-            id:'',
-            nomeVaga:'Desenvolvedor Java Sênior',
-            nomeEmpresa:'Salesforce',
-            ramo:'Soluções de TI',
-            local:'Itapevi - SP',
-            data:'12/04'
-        },
-        {
-            id:'',
-            nomeVaga:'Desenvolvedor Java Sênior',
-            nomeEmpresa:'Salesforce',
-            ramo:'Soluções de TI',
-            local:'Itapevi - SP',
-            data:'12/04'
-        },
-    ];
+    
+import { url } from "../../Components/ListaVagaRecente";
+
+
+    const [resourceType, setResourceType] = useState([]);
+    const [item, setItems] = useState([])
+
+    useEffect(() => {
+      const fetchRT = async () => {
+            const response = await 
+            /* fetch da API */
+              fetch(`${url}${resourceType}`);
+            const responseJSON = await response.json();
+            setItems(responseJSON)
+            console.log(responseJSON) 
+        };
+            fetchRT();
+    }, [])
+
+  setResourceType(resourceType);
 
     const ItemVagas = ({nomeVaga, nomeEmpresa, ramo, local, data}) => (
         <View style={styleInicial.item}>

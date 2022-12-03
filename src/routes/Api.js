@@ -29,11 +29,26 @@ const Connection = () => {
 
     
     return(
-        <ScrollView>
+     <Text></Text>
+    )
+}
+
+/* export const ListaRenderVagas = () => {
+    const renderItem = ({item}) => (
+      <ItemVagas
+        nomeVaga={item.tituloVaga}
+        nomeEmpresa={item.}
+        ramo={item.whatsapp}
+        local={item.contato}
+        data={item.desejavel}
+       />       
+    ) */
+/* 
+   <ScrollView>
                 {
                 items.map(item => (
                     <View style={styleInicial.item}>
-                        {/* renderizando id's do banco de dados */}
+                         renderizando id's do banco de dados 
                         <>
                         {
                            <View>
@@ -66,19 +81,4 @@ const Connection = () => {
      
         </ScrollView>
 
-    )
-}
-
-/* export const ListaRenderVagas = () => {
-    const renderItem = ({item}) => (
-      <ItemVagas
-        nomeVaga={item.tituloVaga}
-        nomeEmpresa={item.}
-        ramo={item.whatsapp}
-        local={item.contato}
-        data={item.desejavel}
-       />       
-    ) */
-
-
-export default Connection
+export default Connection */

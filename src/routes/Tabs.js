@@ -41,7 +41,7 @@ export default function Tabs(){
         )
        } 
       }} />
-      <Tab.Screen name='Vaga' component={Vagas}                 options={{ headerTransparent: true, headerShown: false, tabBarVisible: false,
+      <Tab.Screen name='vaga' component={Vagas}                 options={{ headerTransparent: true, headerShown: false, tabBarVisible: false,
        tabBarIcon : ()=>{
         return(
           <View>

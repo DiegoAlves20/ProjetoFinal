@@ -7,16 +7,18 @@ import { ListaRenderVagas } from "./ListaVagas";
 
 
 
-export default function Vaga({navigation}){
+    export default function Vaga ({navigation}) {
     
-useEffect(()=>{
-    navigation.getParent().setOptions({tabBarStyle: {display: 'none'}})
+    useEffect(()=>{
+        navigation.getParent().setOptions({tabBarStyle: {display: 'none'}})
+    })
 
-})
-
- /* add */   const Filtros = () => {
+    
+        
+     Filtros = () => {
         navigation.navigate('filtro')
     } 
+
         return(
             <View>
                 <ScrollView
@@ -50,9 +52,13 @@ useEffect(()=>{
                         </View>
                     </View>
                     <Text style={styleInicial.tituloFiltroVaga}>Vagas: {'TI'} - {'SP'} - {'Cotia'}</Text>
-                    <ListaRenderVagas />
+
+    
+                
+                    
+                    
                     </KeyboardAvoidingView>
                 </ScrollView>
             </View>
         )
-}
+    }

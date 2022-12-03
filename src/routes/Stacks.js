@@ -4,7 +4,7 @@ import ExampleForm from "../Frames/ExampleForm/ExemploForm";
 import RecuperaSenha from "../Frames/RecuperaSenha/ValidaEmail";
 import AlteraSenha from "../Frames/AlterarSenha/ValidaSenha"; 
 import TelaInicial from "../Frames/HomePage/Home";
-import Vaga  from "../Frames/Vagas/Vagas";
+import Vaga from "../Frames/Vagas/Vagas"
 import Fav from "../Frames/Favoritos/Favs";
 import Perfil from "../Frames/Perfil/Perfi";
 import Filtro from "../Frames/Vagas/FiltroVagas";
@@ -14,7 +14,7 @@ import ResumoCurriculo from "../Frames/Perfil/Curriculo/ResumoCV";
 import { CadCVPessoal } from "../Frames/Perfil/Curriculo/CadCVPessoal/CadCVPes";
 import LoginUsuario from "../Frames/Login/LoginU";
 import Box from "./shareds";
-import DescricaoVagas from "../Components/Modal/MDescVagas";
+import DescricaoVagas from '../Frames/Vagas/DescVagas'
 import { ListaRender } from "../Components/ListaVagaRecente";
 const Stack = createNativeStackNavigator();
 
@@ -31,7 +31,7 @@ function Log({navigation}) {
 
 export function Logi() {
   return(
-    <Stack.Navigator initialRouteName="login">
+    <Stack.Navigator initialRouteName="Login">
 
       <Stack.Screen name="Login" component={LoginUsuario} options={{title:'',headerTransparent: true,headerShown: false,}}/>
       <Stack.Screen name="Alterar Senha" component={AlteraSenha} options={{title:'',headerTransparent: true,headerShown: false,}}/>
@@ -46,9 +46,10 @@ export function Logi() {
   return(
     <Stack.Navigator>
       <Stack.Screen name="Tela Inicial" component={TelaInicial} options={{title:'',headerTransparent: true,headerShown: false,}}/>
-      <Stack.Screen name="LR" component={LR} />
+     {/*  <Stack.Screen name="LR" component={LR} /> */}
       <Stack.Screen name="Menu" component={Menu} />
       <Stack.Screen name="Login" component={LoginUsuario} />
+      <Stack.Screen name="DescVagas" component={DescricaoVagas}/> 
     </Stack.Navigator>
 )}
 
@@ -62,7 +63,7 @@ export function Logi() {
 export function Vagas(){
   return(
     <Stack.Navigator>
-      <Stack.Screen name="vaga" component={Vaga} options={{title:'Vaga',headerTransparent: true, headerShown: false,}}/>
+       <Stack.Screen name="vaga" component={Vaga} options={{title:'Vaga',headerTransparent: true, headerShown: false,}}/>
       <Stack.Screen name="filtro" component={Filtro} options={{title:'Filtro',headerTransparent: true, headerShown: false,}}/>
       <Stack.Screen name="Login" component={LoginUsuario} options={{title:'',headerTransparent: true,headerShown: false,}}/>
     </Stack.Navigator>

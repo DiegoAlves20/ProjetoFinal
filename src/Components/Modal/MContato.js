@@ -36,7 +36,7 @@ import StylesDescVagas from "../../Frames/Vagas/DescVagasStyles";
                 <View style={StylesDescVagas.modalLink}>
                     
                     <TouchableOpacity >
-                        <Text style={StylesDescVagas.linkTitulo} onPress={()=> {setVisivel(true)}} >Entre em contato</Text> 
+                        <Text style={StylesDescVagas.linkTitulo} onPress={()=> {setVisivel(true)}}>Entre em contato</Text> 
                     </TouchableOpacity>
                     
 
